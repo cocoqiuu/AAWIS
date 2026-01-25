@@ -226,41 +226,36 @@
                 <div class="contact-content">
                     <form class="contact-form" action="https://formspree.io/f/mjgydpwp" method="POST">
                         <h3>Get in Touch</h3>
-                        <p>We'd love to hear from you. Whether you have comments or questions about our program, want to join our panel, or are interested in partnering with us, we'd love to have you!</p>
+                        <p>We'd love to hear from you.</p>
 
                         <div class="form-group">
-                            <label>
-                                Name
+                            <label>Name
                                 <input type="text" name="name" placeholder="Your Name" required />
                             </label>
                         </div>
 
                         <div class="form-group">
-                            <label>
-                                Email
+                            <label>Email
                                 <input type="email" name="email" placeholder="Your Email" required />
                             </label>
                         </div>
 
                         <div class="form-group">
-                            <label>
-                                Subject
+                            <label>Subject
                                 <input type="text" name="subject" placeholder="Subject (optional)" />
                             </label>
                         </div>
 
                         <div class="form-group">
-                            <label>
-                                Message
+                            <label>Message
                                 <textarea name="message" placeholder="Your message..." required></textarea>
                             </label>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Send</button>
+                        <!-- hidden reply-to -->
+                        <input type="hidden" name="_replyto" value="">
 
-                        <div class="contact-footer">
-                            <p>You can also reach us at <strong>hello@aawis.org</strong> or follow us on social media.</p>
-                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
                     </form>
                 </div>
             </div>
