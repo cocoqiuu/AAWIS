@@ -173,6 +173,12 @@ main {
     display: block;
 }
 
+#home.tab-content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -192,9 +198,11 @@ main {
     align-items: center;
     padding: var(--spacing-xl) 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
     min-height: 80vh;
     width: 100%;
+    max-width: 1200px;
     box-sizing: border-box;
 }
 
