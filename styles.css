@@ -190,7 +190,7 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
     align-items: center;
-    padding: var(--spacing-xl) var(--spacing-md);
+    padding: var(--spacing-xl) 2rem;
     max-width: 1200px;
     margin: 0 auto;
     min-height: 80vh;
