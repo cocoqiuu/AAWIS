@@ -715,7 +715,7 @@ main {
 
 .form-description {
     margin-top: 0;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 1rem;
     color: #999;
     font-size: 0.875rem;
     font-style: italic;
