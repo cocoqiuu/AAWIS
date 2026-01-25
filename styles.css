@@ -651,12 +651,13 @@ main {
 }
 
 .contact-footer {
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
     padding-top: var(--spacing-md);
     border-top: 1px solid var(--color-light-gray);
     text-align: center;
     color: var(--color-medium-gray);
     font-size: 0.9rem;
+    clear: both;
 }
 
 .form-group {
@@ -721,6 +722,7 @@ main {
     font-size: 1rem;
     font-weight: 500;
     margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
     border-radius: 6px;
     transition: var(--transition-smooth);
     background-color: #333;
@@ -728,6 +730,7 @@ main {
     border: none;
     float: right;
     cursor: pointer;
+    clear: both;
 }
 
 .contact-form .btn-primary:hover {
