@@ -187,11 +187,17 @@ main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
-    align-items: start;
+    align-items: center;
     padding: var(--spacing-xl) var(--spacing-md);
     max-width: 1200px;
     margin: 0 auto;
     min-height: 80vh;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero-title {
