@@ -225,30 +225,39 @@
             <div class="section-container">
                 <h2 class="section-title">Contact Us</h2>
                 <div class="contact-content">
-                    <form
-                        class="contact-form"
-                        action="https://formspree.io/f/mjgydpwp"
-                        method="POST"
-                    >
+                    <form class="contact-form" action="https://formspree.io/f/mjgydpwp" method="POST">
+                        <input type="hidden" name="_to" value="hello@aawis.org">
                         <h3>Get in Touch</h3>
                         <p>We'd love to hear from you. Whether you have comments or questions about our program, want to join our panel, or are interested in partnering with us, we'd love to have you!</p>
 
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label>
+                                Name
+                                <input type="text" name="name" required />
+                            </label>
                         </div>
+
                         <div class="form-group">
-                            <label for="email">Your email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label>
+                                Your email
+                                <input type="email" name="email" required />
+                            </label>
                         </div>
+
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
+                            <label>
+                                Subject
+                                <input type="text" name="subject" />
+                            </label>
                         </div>
+
                         <div class="form-group">
-                            <label for="message">Your message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <label>
+                                Your message
+                                <textarea name="message" required></textarea>
+                            </label>
                         </div>
+
                         <button type="submit" class="btn btn-primary">Send</button>
 
                         <div class="contact-footer">
