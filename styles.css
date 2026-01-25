@@ -160,6 +160,8 @@ p {
 main {
     margin-top: 70px;
     min-height: calc(100vh - 70px);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .tab-content {
@@ -188,12 +190,12 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
     align-items: center;
-    justify-items: center;
     padding: var(--spacing-xl) var(--spacing-md);
     max-width: 1200px;
     margin: 0 auto;
     min-height: 80vh;
-    place-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content {
@@ -202,6 +204,7 @@ main {
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    padding: 0;
 }
 
 .hero-title {
@@ -239,11 +242,11 @@ main {
     height: 400px !important;
     overflow: hidden;
     border-radius: 12px;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
+    display: block !important;
     min-height: 400px !important;
     max-height: 400px !important;
+    margin: 0;
+    padding: 0;
 }
 
 .hero-img {
