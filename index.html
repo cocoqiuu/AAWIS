@@ -220,23 +220,25 @@
         </section>
 
         <!-- Contact Us Section -->
-        <!-- Formspree: Emails go to the address set for this form at formspree.io.
-             Log in → Your Forms → select this form → Settings: set Email to hello@aawis.org. -->
+        <!-- Formspree form: https://formspree.io/f/mjgydpwp — set notification email to hello@aawis.org in Formspree dashboard -->
         <section id="contact" class="tab-content">
             <div class="section-container">
                 <h2 class="section-title">Contact Us</h2>
                 <div class="contact-content">
-                    <form class="contact-form" action="https://formspree.io/f/mjgydpwp" method="POST">
+                    <form
+                        class="contact-form"
+                        action="https://formspree.io/f/mjgydpwp"
+                        method="POST"
+                    >
                         <h3>Get in Touch</h3>
-                        <p>We'd love to hear from you.Whether you have comments or questions about our program, want to join our panel, or are interested in partnering with us, we'd love to have you!</p>
-                        
+                        <p>We'd love to hear from you. Whether you have comments or questions about our program, want to join our panel, or are interested in partnering with us, we'd love to have you!</p>
 
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email">Your email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         <div class="form-group">
@@ -244,11 +246,11 @@
                             <input type="text" id="subject" name="subject" required>
                         </div>
                         <div class="form-group">
-                            <label for="message">Message</label>
+                            <label for="message">Your message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                        
+                        <button type="submit" class="btn btn-primary">Send</button>
+
                         <div class="contact-footer">
                             <p>You can also reach us at <strong>hello@aawis.org</strong> or follow us on social media.</p>
                         </div>
