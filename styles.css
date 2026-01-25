@@ -651,15 +651,16 @@ main {
 }
 
 .contact-footer {
-    margin-top: var(--spacing-lg) !important;
+    margin-top: 0 !important;
     padding-top: var(--spacing-md);
     border-top: 1px solid var(--color-light-gray);
     text-align: center;
     color: var(--color-medium-gray);
     font-size: 0.9rem;
     clear: both !important;
-    display: block;
-    width: 100%;
+    display: block !important;
+    width: 100% !important;
+    overflow: hidden;
 }
 
 .form-group {
@@ -719,20 +720,27 @@ main {
     font-style: italic;
 }
 
+.button-container {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: right;
+    clear: both;
+    display: block;
+    width: 100%;
+}
+
 .contact-form .btn-primary {
     padding: 12px 24px;
     font-size: 1rem;
     font-weight: 500;
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
+    margin: 0;
     border-radius: 6px;
     transition: var(--transition-smooth);
     background-color: #333;
     color: white;
     border: none;
-    float: right;
     cursor: pointer;
-    display: block;
+    display: inline-block;
 }
 
 .contact-form .btn-primary:hover {
@@ -741,13 +749,6 @@ main {
 
 .contact-form .btn-primary:active {
     background-color: #222;
-}
-
-/* Clear float after button */
-.contact-form::after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 /* Footer */
