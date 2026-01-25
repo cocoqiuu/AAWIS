@@ -188,16 +188,20 @@ main {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-xl);
     align-items: center;
+    justify-items: center;
     padding: var(--spacing-xl) var(--spacing-md);
     max-width: 1200px;
     margin: 0 auto;
     min-height: 80vh;
+    place-items: center;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+    width: 100%;
 }
 
 .hero-title {
@@ -235,7 +239,9 @@ main {
     height: 400px !important;
     overflow: hidden;
     border-radius: 12px;
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     min-height: 400px !important;
     max-height: 400px !important;
 }
