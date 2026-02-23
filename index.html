@@ -1,301 +1,1044 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asian American Women In Sports</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Asian American Women In Sports</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link active" data-tab="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link" data-tab="about">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#team" class="nav-link" data-tab="team">Our Team</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#events" class="nav-link" data-tab="events">Events</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link" data-tab="contact">Contact Us</a>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main>
-        <!-- Home Section -->
-        <section id="home" class="tab-content active">
-            <div class="hero">
-                <div class="hero-content">
-                    <h1 class="hero-title"> Not the Exceptions. The Standard. </h1>
-                    <p class="hero-subtitle">Our mission is to empower Asian American athletes by fostering connection, providing resources, and building a supportive community where representation is amplified.</p>
-                    <div class="hero-buttons">
-                        <button class="btn btn-primary">Learn More</button>
-                        <button class="btn btn-secondary">Get Involved</button>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="hero-photo.jpg" alt="" class="hero-img" />
-                </div>
-            </div>
-        </section>
+:root {
+    /* Muted Color Palette */
+    --color-off-white: #fafafa;
+    --color-beige: #f5f5dc;
+    --color-soft-beige: #f8f6f0;
+    --color-warm-white: #fefefe;
+    --color-soft-black: #2c2c2c;
+    --color-dark-gray: #4a4a4a;
+    --color-medium-gray: #6b6b6b;
+    --color-light-gray: #e8e8e8;
+    --color-accent: #8b7355;
+    --color-accent-light: #a89b7c;
+    
+    /* Typography */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Source Sans Pro', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-        <!-- About Us Section -->
-        <section id="about" class="tab-content">
-            <div class="section-container">
-                <h2 class="section-title">About Us</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <div class="mission-section">
-                            <h3>Our Mission</h3>
-                            <p class="lead">Our mission is to empower Asian-American athletes by fostering connection, providing resources, and building a supportive community where representation is amplified.</p>
-                        </div>
-                        
-                        <div class="services-overview">
-                            <h3>Our Services</h3>
-                            <div class="services-grid">
-                                <div class="service-item">
-                                    <div class="service-icon">🎤</div>
-                                    <h4>Panel of Speakers & Support</h4>
-                                    <p>Asian American speakers sharing their experiences and providing guidance to help you navigate your journey</p>
-                                </div>
-                                <div class="service-item">
-                                    <div class="service-icon">📧</div>
-                                    <h4>Newsletter</h4>
-                                    <p>Stay connected with our community through regular updates and insights</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    color: var(--color-soft-black);
+    background-color: var(--color-off-white);
+    overflow-x: hidden;
+}
 
-                </div>
-            </div>
-        </section>
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-sm);
+}
 
-        <!-- Our Team Section -->
-        <section id="team" class="tab-content">
-            <div class="section-container">
-                <h2 class="section-title">Our Team</h2>
+h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
 
-                <div class="team-subsection">
-                    <h3 class="team-subsection-title">Founder</h3>
-                    <div class="team-grid team-grid-founder">
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>CoCo Qiu</h3>
-                            <p class="member-role">Founder</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About CoCo</button>
-                        </div>
-                    </div>
-                </div>
+h2 {
+    font-size: 2.5rem;
+}
 
-                <div class="team-subsection">
-                    <h3 class="team-subsection-title">Co-Founders</h3>
-                    <div class="team-grid team-grid-cofounders">
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Co-Founder</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Co-Founder</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                    </div>
-                </div>
+h3 {
+    font-size: 1.8rem;
+}
 
-                <div class="team-subsection">
-                    <h3 class="team-subsection-title">Mentor / Panel Speakers</h3>
-                    <div class="team-grid team-grid-mentors">
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>Olivia Lee</h3>
-                            <p class="member-role">Mentor / Panel Speaker</p>
-                            <button type="button" class="btn btn-small btn-about">About Olivia</button>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Mentor / Panel Speaker</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Mentor / Panel Speaker</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Mentor / Panel Speaker</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Mentor / Panel Speaker</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                        <div class="team-member">
-                            <div class="member-photo"></div>
-                            <h3>[Name]</h3>
-                            <p class="member-role">Mentor / Panel Speaker</p>
-                            <p class="member-school">[School, Year]</p>
-                            <button type="button" class="btn btn-small btn-about">About [Name]</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+p {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-dark-gray);
+}
 
-        <!-- Events Section -->
-        <section id="events" class="tab-content">
-            <div class="section-container">
-                <h2 class="section-title">Events</h2>
-                <div class="events-grid">
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">TBD</span>
-                            <span class="day">--</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Coming Soon</h3>
-                            <p class="event-time">Details TBD</p>
-                            <p class="event-location">Location TBD</p>
-                            <p class="event-description">We're planning exciting events to bring our community together. Stay tuned for updates!</p>
-                            <button class="btn btn-small">Coming Soon</button>
-                        </div>
-                    </div>
-                    <div class="event-card">
-                        <div class="event-date">
-                            <span class="month">TBD</span>
-                            <span class="day">--</span>
-                        </div>
-                        <div class="event-details">
-                            <h3>Coming Soon</h3>
-                            <p class="event-time">Details TBD</p>
-                            <p class="event-location">Location TBD</p>
-                            <p class="event-description">More exciting events are in the works. We can't wait to share them with you!</p>
-                            <button class="btn btn-small">Coming Soon</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--color-medium-gray);
+}
 
-        <!-- Contact Us Section -->
-        <section id="contact" class="tab-content">
-            <div class="section-container">
-                <h2 class="section-title">Contact Us</h2>
-                <div class="contact-content">
-                    <form class="contact-form" action="https://formspree.io/f/mjgydpwp" method="POST">
-                        <p class="form-description">If you'd like to support us or have any questions, please don't hesitate to contact us. We look forward to connecting with you!</p>
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(250, 250, 250, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-light-gray);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
 
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required />
-                        </div>
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
 
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required />
-                        </div>
+.nav-logo h2 {
+    font-family: var(--font-serif);
+    color: var(--color-soft-black);
+    font-size: 1.5rem;
+    margin: 0;
+}
 
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" />
-                        </div>
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+}
 
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
+.nav-link {
+    text-decoration: none;
+    color: var(--color-medium-gray);
+    font-weight: 400;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+    position: relative;
+}
 
-                        <div class="button-container">
-                            <button type="submit" class="btn btn-primary">Send</button>
-                        </div>
+.nav-link:hover,
+.nav-link.active {
+    color: var(--color-soft-black);
+    background-color: var(--color-soft-beige);
+}
 
-                        <div class="contact-footer">
-                            <p>You can also reach us at <strong>hello@aawis.org</strong> or follow us on social media.</p>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Asian American Women <br> In Sports</h3>
-                <p>A tax exempt 501(c)(3) nonprofit organization. Our Employer Identification Number (EIN) is ______.</p>
-            </div>
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 80%;
+}
 
-            <div class="footer-section">
-                <h4>Stay Updated</h4>
-                <p>Newsletters, updates, and exclusive content about our community events and initiatives.</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your Email Address" class="newsletter-input">
-                    <button class="btn btn-primary newsletter-btn">Subscribe</button>
-                </div>
-                <p class="contact-email">Contact us at hello@aawis.org for any inquiries!</p>
-            </div>
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
 
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <div class="social-links">
-                    <a href="#" class="social-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="social-link">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M0 3v18h24V3H0zm21.518 2L12 12.713 2.482 5h19.036zM2 19V7.183l10 8.104 10-8.104V19H2z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Asian American Women In Sports. All rights reserved.</p>
-        </div>
-    </footer>
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-soft-black);
+    margin: 3px 0;
+    transition: var(--transition-smooth);
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+/* Main Content */
+main {
+    margin-top: 70px;
+    min-height: calc(100vh - 70px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.tab-content {
+    display: none;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+#home.tab-content {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    padding: var(--spacing-xl) 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 80vh;
+    width: 100%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    color: var(--color-soft-black);
+    margin-bottom: var(--spacing-md);
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-medium-gray);
+    margin-bottom: var(--spacing-lg);
+    animation: slideInLeft 1s ease-out 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    animation: slideInLeft 1s ease-out 0.4s both;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 400px;
+    background: linear-gradient(135deg, var(--color-beige), var(--color-soft-beige));
+    border-radius: 12px;
+    animation: slideInRight 1s ease-out 0.3s both;
+    display: block;
+    min-height: 400px;
+}
+
+.hero-image {
+    width: 100% !important;
+    height: 400px !important;
+    overflow: hidden;
+    border-radius: 12px;
+    display: block !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-img {
+    width: 100% !important;
+    height: 400px !important;
+    min-height: 400px !important;
+    max-height: 400px !important;
+    object-fit: cover !important;
+    border-radius: 12px;
+    animation: slideInRight 1s ease-out 0.3s both;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: block !important;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Buttons */
+.btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(139, 115, 85, 0.3);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-accent);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.btn-small {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+.btn-about {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-about:hover {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+
+
+/* Section Containers */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-sm) var(--spacing-md);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    margin-top: var(--spacing-xl);
+    color: var(--color-soft-black);
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+}
+
+/* About Section */
+.about-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mission-section,
+.founder-story,
+.organization-info {
+    margin-bottom: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-soft-beige);
+}
+
+.mission-section h3,
+.founder-story h3 {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.founder-story {
+    background-color: var(--color-soft-beige);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-accent);
+    margin-top: var(--spacing-lg);
+    position: relative;
+    overflow: visible;
+}
+
+.founder-content {
+    position: relative;
+}
+
+.founder-photo {
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    z-index: 2;
+}
+
+.photo-placeholder {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--color-accent);
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.founder-text {
+    padding-top: 10px;
+}
+
+.founder-text p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+    font-style: normal;
+}
+
+.founder-text p:last-child {
+    margin-bottom: 0;
+}
+
+.services-overview {
+    margin-top: var(--spacing-xl);
+}
+
+.services-overview h3 {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.service-item {
+    text-align: center;
+    padding: var(--spacing-lg);
+    background-color: var(--color-white);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.service-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-item h4 {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.service-item p {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.stat {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-soft-beige);
+    border-radius: 8px;
+    transition: var(--transition-smooth);
+}
+
+.stat:hover {
+    transform: scale(1.05);
+}
+
+.stat h3 {
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* Team Section */
+.team-subsection {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.team-subsection-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-soft-black);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-md);
+}
+
+/* Founder: 1 card, centered */
+.team-grid-founder {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+}
+
+/* Co-Founders: 2 cards side by side */
+.team-grid-cofounders {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+/* Mentor / Panel Speakers: 3 columns, 2 rows for 6 cards */
+.team-grid-mentors {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.team-member {
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--color-warm-white);
+    border-radius: 12px;
+    transition: var(--transition-gentle);
+    border: 1px solid var(--color-light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.team-member .btn-about {
+    margin-top: var(--spacing-sm);
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-beige), var(--color-accent-light));
+    margin: 0 auto var(--spacing-md);
+}
+
+.member-role {
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.member-school {
+    font-size: 0.9rem;
+    color: var(--color-medium-gray);
+    margin-bottom: var(--spacing-sm);
+    font-style: italic;
+}
+
+.member-bio {
+    font-size: 0.9rem;
+    color: var(--color-medium-gray);
+}
+
+/* Events Section */
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.event-card {
+    display: flex;
+    background-color: var(--color-warm-white);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: var(--transition-gentle);
+    border: 1px solid var(--color-light-gray);
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.event-date {
+    background-color: var(--color-accent);
+    color: white;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+}
+
+.month {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.day {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-family: var(--font-serif);
+}
+
+.event-details {
+    padding: var(--spacing-md);
+    flex: 1;
+}
+
+.event-time,
+.event-location {
+    color: var(--color-medium-gray);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.event-description {
+    margin-bottom: var(--spacing-md);
+    color: var(--color-dark-gray);
+}
+
+/* Contact Section */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-details {
+    margin-top: var(--spacing-lg);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-icon {
+    font-size: 1.5rem;
+    margin-top: 2px;
+}
+
+.contact-socials {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xs);
+}
+
+.contact-socials .social-link {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.contact-socials .social-link:hover {
+    color: var(--color-accent-light);
+}
+
+.contact-form {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h3 {
+    color: var(--color-soft-black);
+    font-family: var(--font-serif);
+    font-size: 1.75rem;
+    margin-bottom: var(--spacing-sm);
+    font-weight: 600;
+    text-align: left;
+}
+
+.contact-form p {
+    margin-bottom: var(--spacing-xl);
+    color: var(--color-dark-gray);
+    text-align: left;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+.contact-footer {
+    margin-top: 0 !important;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-light-gray);
+    text-align: center;
+    color: var(--color-medium-gray);
+    font-size: 0.9rem;
+    clear: both !important;
+    display: block !important;
+    width: 100% !important;
+    overflow: hidden;
+}
+
+.form-group {
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-soft-black);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    background-color: #ffffff;
+    color: var(--color-soft-black);
+    box-sizing: border-box;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+    opacity: 0.7;
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    border-color: #ccc;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+.form-description {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #999;
+    font-size: 0.875rem;
+    font-style: italic;
+}
+
+.button-container {
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    text-align: right;
+    clear: both;
+    display: block;
+    width: 100%;
+}
+
+.contact-form .btn-primary {
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.contact-form .btn-primary:hover {
+    background-color: #444;
+}
+
+.contact-form .btn-primary:active {
+    background-color: #222;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--color-soft-black);
+    color: var(--color-off-white);
+    padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xs);
+    margin-top: var(--spacing-xs);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: calc(var(--spacing-xl) * 1.5);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: var(--color-off-white);
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-section:last-child h4 {
+    text-align: left;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-section a {
+    color: var(--color-light-gray);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.footer-section a:hover {
+    color: var(--color-accent-light);
+}
+
+.newsletter-form {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin: var(--spacing-sm) 0;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border: 1px solid var(--color-light-gray);
+    border-radius: 6px;
+    background-color: var(--color-off-white);
+    color: var(--color-soft-black);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.newsletter-btn {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.contact-email {
+    font-size: 0.85rem;
+    color: var(--color-light-gray);
+    margin-top: var(--spacing-xs);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    justify-content: flex-start;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-dark-gray);
+    border-radius: 50%;
+    transition: var(--transition-smooth);
+    color: var(--color-off-white);
+}
+
+.social-link:hover {
+    background-color: var(--color-accent);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing-sm);
+    border-top: 1px solid var(--color-dark-gray);
+    color: var(--color-medium-gray);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: var(--color-off-white);
+        width: 100%;
+        text-align: center;
+        transition: var(--transition-smooth);
+        padding: var(--spacing-lg) 0;
+        border-top: 1px solid var(--color-light-gray);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+    
+    .hero-image {
+        height: 400px;
+        width: 100%;
+    }
+    
+    .hero-img {
+        height: 400px;
+        width: 100%;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid-cofounders {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid-mentors {
+        grid-template-columns: 1fr;
+    }
+    
+    .events-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-card {
+        flex-direction: column;
+    }
+    
+    .event-date {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--spacing-xs);
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-container {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+    
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+} 
