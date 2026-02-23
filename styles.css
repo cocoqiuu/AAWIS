@@ -592,7 +592,14 @@ main {
 .member-role {
     color: var(--color-accent);
     font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+}
+
+.member-school {
+    font-size: 0.9rem;
+    color: var(--color-medium-gray);
     margin-bottom: var(--spacing-sm);
+    font-style: italic;
 }
 
 .member-bio {
