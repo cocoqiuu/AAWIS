@@ -587,6 +587,8 @@ main {
     border-radius: 50%;
     background: linear-gradient(135deg, var(--color-beige), var(--color-accent-light));
     margin: 0 auto var(--spacing-md);
+    object-fit: cover;
+    display: block;
 }
 
 .member-role {
