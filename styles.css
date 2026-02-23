@@ -333,6 +333,17 @@ main {
     font-size: 0.9rem;
 }
 
+.btn-about {
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.btn-about:hover {
+    background-color: var(--color-accent);
+    color: white;
+}
+
 
 
 /* Section Containers */
@@ -506,11 +517,45 @@ main {
 }
 
 /* Team Section */
+.team-subsection {
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.team-subsection-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--color-soft-black);
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-accent);
+    display: inline-block;
+    text-align: center;
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
+/* Founder: 1 card, centered */
+.team-grid-founder {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+}
+
+/* Co-Founders: 2 cards side by side */
+.team-grid-cofounders {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+/* Mentor / Panel Speakers: 3 columns, 2 rows for 6 cards */
+.team-grid-mentors {
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
 }
 
 .team-member {
@@ -520,6 +565,15 @@ main {
     border-radius: 12px;
     transition: var(--transition-gentle);
     border: 1px solid var(--color-light-gray);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.team-member .btn-about {
+    margin-top: var(--spacing-sm);
 }
 
 .team-member:hover {
@@ -941,7 +995,15 @@ main {
     }
     
     .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid-cofounders {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-grid-mentors {
+        grid-template-columns: 1fr;
     }
     
     .events-grid {
