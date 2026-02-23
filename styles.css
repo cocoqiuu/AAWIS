@@ -588,7 +588,12 @@ main {
     background: linear-gradient(135deg, var(--color-beige), var(--color-accent-light));
     margin: 0 auto var(--spacing-md);
     object-fit: cover;
+    object-position: center;
     display: block;
+}
+
+img.member-photo {
+    transform: scale(1.15);
 }
 
 .member-role {
