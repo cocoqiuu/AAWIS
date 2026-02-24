@@ -71,46 +71,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission handling
+    // Form submission handling (Formspree)
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
 
-            // Simple validation
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all fields.');
+            const nameEl = this.querySelector('[name="name"]');
+            const emailEl = this.querySelector('[name="email"]');
+            const subjectEl = this.querySelector('[name="subject"]');
+            const messageEl = this.querySelector('[name="message"]');
+            const name = (nameEl && nameEl.value || '').trim();
+            const email = (emailEl && emailEl.value || '').trim();
+            const subject = (subjectEl && subjectEl.value || '').trim();
+            const message = (messageEl && messageEl.value || '').trim();
+
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
                 return;
             }
 
-            // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
                 alert('Please enter a valid email address.');
                 return;
             }
 
-            // Simulate form submission
             const submitButton = this.querySelector('button[type="submit"]');
             const originalText = submitButton.textContent;
-            
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
 
-            // Simulate API call
-            setTimeout(() => {
-                alert('Thank you for your message! We\'ll get back to you soon.');
-                this.reset();
+            const formData = new FormData(this);
+            formData.append('_replyto', email);
+
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (response.ok) {
+                    console.log('Formspree: submission sent successfully.');
+                    alert('Thank you for your message! We\'ll get back to you soon.');
+                    this.reset();
+                } else {
+                    const data = await response.json().catch(() => ({}));
+                    console.error('Formspree error:', response.status, data);
+                    alert(data.error || 'Something went wrong. Please try again or email us at hello@aawis.org.');
+                }
+            } catch (err) {
+                console.error('Formspree submission failed:', err);
+                alert('Something went wrong. Please try again or email us at hello@aawis.org.');
+            } finally {
                 submitButton.textContent = originalText;
                 submitButton.disabled = false;
-            }, 2000);
+            }
         });
     }
 
