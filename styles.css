@@ -594,15 +594,28 @@ main {
     display: block;
 }
 
+.member-photo-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto var(--spacing-md);
+}
+
+.member-photo-wrap .member-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transform: scale(1.4);
+}
+
 .member-photo-img {
     width: 120px;
     height: 120px;
     object-fit: cover;
     object-position: center;
-}
-
-img.member-photo {
-    transform: scale(1.5);
 }
 
 .member-role {
