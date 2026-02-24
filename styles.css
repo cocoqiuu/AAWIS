@@ -584,6 +584,8 @@ main {
 .member-photo {
     width: 120px;
     height: 120px;
+    min-width: 120px;
+    min-height: 120px;
     border-radius: 50%;
     background: linear-gradient(135deg, var(--color-beige), var(--color-accent-light));
     margin: 0 auto var(--spacing-md);
@@ -592,8 +594,15 @@ main {
     display: block;
 }
 
+.member-photo-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+}
+
 img.member-photo {
-    transform: scale(1.15);
+    transform: scale(1.25);
 }
 
 .member-role {
