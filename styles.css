@@ -1399,6 +1399,9 @@ main:has(#contact.active) {
 .profile-page-bio {
     flex: 1;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .profile-page-bio p {
     margin: 0 0 var(--spacing-sm);
