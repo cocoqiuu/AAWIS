@@ -1,9 +1,10 @@
-// Tab Navigation
-document.addEventListener('DOMContentLoaded', function() {
+// Tab Navigation - run when DOM ready (handles script-at-bottom case where DOMContentLoaded already fired)
+function initPage() {
     const navLinks = document.querySelectorAll('.nav-link');
     const tabContents = document.querySelectorAll('.tab-content');
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const isIndexPage = document.getElementById('home') && document.getElementById('home').classList.contains('tab-content');
 
     // Tab switching functionality
     function switchTab(tabName) {
@@ -30,46 +31,84 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Event listeners for nav links
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const tabName = this.getAttribute('data-tab');
-            switchTab(tabName);
-            
-            // Close mobile menu if open
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
+    if (isIndexPage) {
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const tabName = this.getAttribute('data-tab');
+                if (tabName) {
+                    e.preventDefault();
+                    switchTab(tabName);
+                    window.location.hash = tabName;
+                    if (navMenu) navMenu.classList.remove('active');
+                    if (hamburger) hamburger.classList.remove('active');
+                }
+            });
         });
-    });
+    }
+
+    // On index: show the tab from URL (?tab= from profile page, or #hash from same-page). ?tab= is reliable when coming from another page.
+    if (isIndexPage) {
+        var validTabs = ['home', 'about', 'team', 'events', 'contact'];
+        function getTabFromUrl() {
+            var params = new URLSearchParams(window.location.search);
+            var tabParam = params.get('tab');
+            if (tabParam && validTabs.indexOf(tabParam) !== -1 && document.getElementById(tabParam)) return tabParam;
+            var hash = (window.location.hash || '').replace(/^#/, '');
+            if (hash && validTabs.indexOf(hash) !== -1 && document.getElementById(hash)) return hash;
+            return 'home';
+        }
+        function showTabFromUrl() {
+            var tab = getTabFromUrl();
+            switchTab(tab);
+            if (window.history && window.history.replaceState) {
+                var params = new URLSearchParams(window.location.search);
+                if (params.has('tab')) {
+                    var path = window.location.pathname;
+                    if (!path || path === '/') path = '/index.html';
+                    path += (tab !== 'home' ? '#' + tab : '');
+                    window.history.replaceState(null, '', path);
+                }
+            }
+        }
+        showTabFromUrl();
+        window.addEventListener('hashchange', showTabFromUrl);
+        window.addEventListener('load', showTabFromUrl);
+        window.addEventListener('pageshow', function(e) {
+            if (e.persisted) showTabFromUrl();
+        });
+    }
 
     // Mobile menu toggle
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-        }
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
             }
         });
-    });
+    }
+
+    // Smooth scrolling for same-page # anchors (index only)
+    if (isIndexPage) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
 
     // Form submission handling (Formspree)
     const contactForm = document.querySelector('.contact-form');
@@ -153,28 +192,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Intersection Observer for animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    // Intersection Observer for animations (optional)
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.team-member, .event-card, .stat').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
         });
-    }, observerOptions);
-
-    // Observe elements for animation
-    document.querySelectorAll('.team-member, .event-card, .stat').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-        observer.observe(el);
-    });
+    }
 
     // Navbar scroll effect
     let lastScrollTop = 0;
@@ -185,10 +226,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (scrollTop > lastScrollTop && scrollTop > 100) {
             // Scrolling down
-            navbar.style.transform = 'translateY(-100%)';
+            if (navbar) navbar.style.transform = 'translateY(-100%)';
         } else {
             // Scrolling up
-            navbar.style.transform = 'translateY(0)';
+            if (navbar) navbar.style.transform = 'translateY(0)';
         }
         
         lastScrollTop = scrollTop;
@@ -204,9 +245,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Initialize first tab as active
-    switchTab('home');
-});
+}
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPage);
+} else {
+    initPage();
+}
 
 // Utility functions
 function debounce(func, wait) {
