@@ -96,6 +96,18 @@ p {
     height: 70px;
 }
 
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.nav-logo-img {
+    height: 44px;
+    width: auto;
+    display: block;
+}
+
 .nav-logo h2 {
     font-family: var(--font-serif);
     color: var(--color-soft-black);
@@ -377,6 +389,14 @@ main {
     border-top: 1px solid var(--color-soft-beige);
 }
 
+.about-heading {
+    color: var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
 .mission-section h3,
 .founder-story h3 {
     color: var(--color-accent);
@@ -433,6 +453,25 @@ main {
 
 .founder-text p:last-child {
     margin-bottom: 0;
+}
+
+.founder-box {
+    margin-top: var(--spacing-xl);
+}
+
+.founder-box .about-heading,
+.founder-box h3 {
+    color: #8b7355 !important;
+}
+
+.founder-box-text {
+    margin: 0 0 var(--spacing-md);
+    font-size: 0.95rem;
+    color: var(--color-text);
+}
+
+.founder-box .btn {
+    display: inline-block;
 }
 
 .services-overview {
@@ -714,10 +753,198 @@ main {
     color: var(--color-dark-gray);
 }
 
-/* Contact Section */
-.contact-content {
-    max-width: 600px;
+/* Contact Section – tan fills full width, content centered */
+#contact {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f8f6f3 0%, #ebe6df 100%);
+}
+
+/* When Contact tab is visible, main gets same tan so no white strip above footer */
+main:has(#contact.active) {
+    background: linear-gradient(180deg, #f8f6f3 0%, #ebe6df 100%);
+}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#contact .section-container {
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem var(--spacing-lg) 4rem;
+}
+
+#contact .section-title {
+    text-align: center;
+    width: 100%;
+}
+
+.contact-content {
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-aesthetic {
+    text-align: center;
+    padding: 2rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+}
+
+.contact-intro {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2c2c2c;
+    margin: 0;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Social row – two big cards that fill the space */
+.contact-social-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    align-items: stretch;
+}
+
+/* Force brown only – no blue on link or :visited/:link */
+#contact .contact-social-card,
+#contact .contact-social-card:link,
+#contact .contact-social-card:visited,
+#contact .contact-social-card:hover,
+#contact .contact-social-card:focus,
+#contact .contact-social-card:active {
+    color: #5c5348 !important;
+    text-decoration: none !important;
+}
+
+#contact .contact-social-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    min-height: 220px;
+    padding: 2.5rem 2rem;
+    background: rgba(255, 255, 255, 0.85);
+    border: 2px solid #d4ccbf;
+    border-radius: 14px;
+    transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact .contact-social-card:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #8b7355;
+    box-shadow: 0 8px 24px rgba(139, 115, 85, 0.12);
+}
+
+#contact .contact-social-card:hover .contact-social-label,
+#contact .contact-social-card:hover .contact-social-icon svg {
+    color: #8b7355 !important;
+    fill: #8b7355 !important;
+}
+
+.contact-social-card .contact-social-icon {
+    line-height: 0;
+}
+
+.contact-social-card .contact-social-icon svg {
+    display: block;
+    fill: #5c5348;
+    transition: fill 0.2s ease;
+}
+
+.contact-social-card .contact-social-label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #5c5348;
+    transition: color 0.2s ease;
+}
+
+@media (max-width: 600px) {
+    .contact-social-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    #contact .contact-social-card {
+        min-height: 160px;
+    }
+}
+
+/* Override browser default blue – high specificity so it always wins */
+#contact .contact-email-link,
+#contact .contact-email-link:link,
+#contact .contact-email-link:hover,
+#contact .contact-email-link:visited,
+#contact .contact-email-link:focus,
+#contact .contact-email-link:active {
+    color: #8b7355 !important;
+    font-weight: 600;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(139, 115, 85, 0.4);
+    transition: var(--transition-smooth);
+}
+
+#contact .contact-email-link:hover,
+#contact .contact-email-link:focus {
+    border-bottom-color: #8b7355;
+}
+
+.contact-social-copy {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-medium-gray);
+    margin: 0 0 var(--spacing-md);
+}
+
+.contact-social-links {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Social icons – brown/dark gray, never blue */
+#contact .contact-social-link,
+#contact .contact-social-link:link,
+#contact .contact-social-link:visited {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: transparent;
+    color: #5c5348 !important;
+    border: 1.5px solid #c4b8a8;
+    text-decoration: none !important;
+    transition: var(--transition-smooth);
+}
+
+#contact .contact-social-link:hover,
+#contact .contact-social-link:focus {
+    background: #8b7355;
+    color: #f5f3ef !important;
+    border-color: #8b7355;
 }
 
 .contact-details {
@@ -1146,7 +1373,7 @@ main {
 .profile-page-body {
     display: flex;
     gap: var(--spacing-xl);
-    align-items: flex-start;
+    align-items: center;
     max-width: 900px;
     margin: 0 auto;
 }
