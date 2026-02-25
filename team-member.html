@@ -32,7 +32,7 @@
 
     <main class="profile-page">
         <div class="section-container">
-            <a href="index.html#team" class="back-link">← Back to Our Team</a>
+            <a href="index.html" class="back-link">← Back to Our Team</a>
 
             <!-- CoCo Qiu -->
             <section id="coco" class="profile-section" data-member="coco">
@@ -44,7 +44,7 @@
                             <img src="coco-qiu-profile.png" alt="CoCo Qiu" />
                         </div>
                         <div class="profile-page-bio">
-                            <p>Edit this section in team-member.html to add CoCo's bio.</p>
+                            <p>Hi, I'm CoCo! I am a current senior at Madison County High School, based in a small town in Georgia. I have played for Gwinnett Soccer Association (GSA) ECNL for the past 3 years. I recently went through the recruitment process and wanted to help provide insights and awareness for the aspiring Asian American athletic community that I once wished I had. Through my own experiences, it has created my motivations for expanding equitable access to opportunity and standardizing the playing field for people who come from less resourceful areas/backgrounds. Outside of soccer, I spend a lot of time frolicking outdoors and love a good coffee chat!</p>
                         </div>
                     </div>
                 </div>
@@ -89,10 +89,10 @@
                     <p class="profile-page-role">Mentor / Panel Speaker</p>
                     <div class="profile-page-body">
                         <div class="profile-page-photo">
-                            <div class="profile-photo-placeholder"></div>
+                            <img src="olivia-lee-profile.png" alt="Olivia Lee" />
                         </div>
                         <div class="profile-page-bio">
-                            <p>Edit this section in team-member.html to add Olivia's bio.</p>
+                            <p>Hi, I'm Olivia! I'm a student-athlete at the University of Pittsburgh, where I balance a double major in Finance and Marketing with my role as a leader on the women's soccer team. Originally from Scarsdale, New York, I grew up playing for New York Soccer Club in the Girls' Academy League before committing to Pitt as a high school junior. After earning significant playing time as a freshman and sophomore, I was honored to be named Team Captain in my junior year. Off the field, I'm a huge dog lover and I love to go to the beach!</p>
                         </div>
                     </div>
                 </div>
@@ -179,20 +179,27 @@
                 var sections = document.querySelectorAll('.profile-section');
                 var hash = (window.location.hash || '#coco').replace('#', '');
                 var found = false;
-                sections.forEach(function(s) {
+                for (var i = 0; i < sections.length; i++) {
+                    var s = sections[i];
                     if (s.id === hash) {
                         s.classList.add('profile-section-visible');
+                        s.style.display = 'block';
                         found = true;
                     } else {
                         s.classList.remove('profile-section-visible');
+                        s.style.display = 'none';
                     }
-                });
+                }
                 if (!found && sections.length) {
                     sections[0].classList.add('profile-section-visible');
+                    sections[0].style.display = 'block';
                 }
             }
             showProfileFromHash();
             window.addEventListener('hashchange', showProfileFromHash);
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', showProfileFromHash);
+            }
         })();
     </script>
 </body>
