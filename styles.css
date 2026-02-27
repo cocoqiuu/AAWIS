@@ -674,6 +674,9 @@ main {
     object-fit: cover;
     object-position: center;
 }
+.member-photo-wrap .member-photo-img--skyla {
+    object-position: 36% 50%;
+}
 
 .member-role {
     color: var(--color-accent);
@@ -1385,6 +1388,7 @@ main:has(#contact.active) {
     border-radius: 8px;
     overflow: hidden;
     background: var(--color-light-gray);
+    margin-left: var(--spacing-lg);
 }
 .profile-page-photo img {
     width: 100%;
@@ -1413,6 +1417,38 @@ main:has(#contact.active) {
 .profile-page-bio p:last-child {
     margin-bottom: 0;
 }
+.profile-social {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    flex-wrap: wrap;
+    width: 280px;
+    margin-left: calc((100% - min(900px, 100%)) / 2 + var(--spacing-lg));
+    margin-right: auto;
+    justify-content: center;
+}
+.profile-page-card > .profile-social {
+    margin-top: var(--spacing-sm);
+}
+.profile-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--color-light-gray);
+    color: var(--color-medium-gray);
+    transition: background 0.2s, color 0.2s;
+}
+.profile-social-link:hover {
+    background: var(--color-accent);
+    color: var(--color-warm-white);
+}
+.profile-social-icon {
+    width: 20px;
+    height: 20px;
+}
 @media (max-width: 600px) {
     .profile-page-body {
         flex-direction: column;
@@ -1422,5 +1458,10 @@ main:has(#contact.active) {
     .profile-page-photo {
         width: 220px;
         height: 220px;
+    }
+    .profile-social {
+        width: auto;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
