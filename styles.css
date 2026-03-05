@@ -587,16 +587,16 @@ main {
     max-width: 100%;
 }
 
-/* Co-Founders: 2 cards side by side */
+/* Co-Founders: 2 cards side by side – constrained width so spacing matches */
 .team-grid-cofounders {
     grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
+    gap: var(--spacing-lg);
 }
 
-/* Mentor / Panel Speakers: 3 columns, 2 rows for 6 cards */
+/* Mentor / Panel Speakers: 3 columns, 2 rows (6 cards) */
 .team-grid-mentors {
     grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
+    gap: var(--spacing-lg);
 }
 
 .team-member {
@@ -883,6 +883,19 @@ main:has(#contact.active) {
     transition: color 0.2s ease;
 }
 
+/* Newsletter card – centered below Instagram & LinkedIn */
+.contact-newsletter-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.contact-newsletter-row .contact-newsletter-card {
+    max-width: 400px;
+    width: 100%;
+}
+
 @media (max-width: 600px) {
     .contact-social-row {
         grid-template-columns: 1fr;
@@ -890,6 +903,9 @@ main:has(#contact.active) {
     }
     #contact .contact-social-card {
         min-height: 160px;
+    }
+    .contact-newsletter-row {
+        margin-top: 1.5rem;
     }
 }
 
